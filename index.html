@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scholarship Renewal System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="msg" class="msg hidden"></div>
+
+  <!-- LOGIN -->
+  <section id="loginView" class="card narrow">
+    <h1>Scholarship Renewal</h1>
+    <label>Email <input id="email" type="email" autocomplete="username"></label>
+    <label>Password <input id="password" type="password" autocomplete="current-password"></label>
+    <button id="loginBtn">Log in</button>
+  </section>
+
+  <!-- APP -->
+  <section id="appView" class="hidden">
+    <header>
+      <div><strong id="who"></strong> <span id="roleTag" class="badge grey"></span></div>
+      <button id="logoutBtn" class="ghost">Log out</button>
+    </header>
+
+    <!-- SCHOLAR SCREEN -->
+    <div id="scholarView" class="hidden">
+      <div class="card">
+        <h2>My scholarship</h2>
+        <div id="myRules"></div>
+      </div>
+
+      <div class="card">
+        <h2>Submit grades</h2>
+        <div class="grid">
+          <label>Semester <select id="term"></select></label>
+          <label>GWA (1.00 best - 5.00 worst) <input id="gwa" type="number" step="0.01" min="1" max="5"></label>
+          <label>Units <input id="units" type="number" min="0"></label>
+          <label>Failed <input id="failed" type="number" min="0" value="0"></label>
+          <label>Incomplete <input id="inc" type="number" min="0" value="0"></label>
+          <label>Dropped <input id="dropped" type="number" min="0" value="0"></label>
+          <label>Proof (image / PDF) <input id="proof" type="file" accept="image/*,.pdf"></label>
+        </div>
+        <button id="submitBtn">Submit</button>
+      </div>
+
+      <div class="card"><h2>My submissions</h2><div id="mySubs"></div></div>
+      <div class="card"><h2>My history</h2><div id="myHistory"></div></div>
+    </div>
+
+    <!-- STAFF SCREEN -->
+    <div id="staffView" class="hidden">
+      <div class="stats" id="stats"></div>
+      <input id="search" class="search" placeholder="Search name or student ID...">
+      <nav class="tabs">
+        <button class="tab active" data-tab="subs">Submissions</button>
+        <button class="tab" data-tab="scholars">Assign scholar</button>
+        <button class="tab" data-tab="history">History</button>
+      </nav>
+      <div id="tab-subs" class="card"></div>
+      <div id="tab-scholars" class="card hidden"></div>
+      <div id="tab-history" class="card hidden"></div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
