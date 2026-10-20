@@ -1,7 +1,11 @@
 # Scholarship Renewal System
 
+## Repo Link:
+https://github.com/KuyaYan/scholarship-system
+
 ## Run it
-3. `python3 -m http.server 8000` and open http://localhost:8000
+1. cd to ~/Documents/SAD_Exam_Section_3A_008589/
+1. `python3 -m http.server 8000` and open http://localhost:8000
 
 ## Test logins (password `Password123!`)
 `staff@test.com`, `a01@test.com` ... `a06@test.com`
